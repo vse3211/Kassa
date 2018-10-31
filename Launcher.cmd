@@ -73,8 +73,10 @@ rem READY
 :settings
 call clean.bat
 set /p orgname=Введите имя организации: 
+set /p choise=Обнулить ID покупки - 1, оставить как есть - 0:
+if %choise% == 1 (echo echo off>>sellID.bat&&echo set sellID=0>>sellID.bat)
 echo echo off>settings.bat
-echo set versionSoft=v0.0
+echo set versionSoft=v0.1
 echo title Shop %versionSoft%>>settings.bat
 echo set orgname=%orgname%>>settings.bat
 echo set debug=0>>settings.bat

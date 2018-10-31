@@ -1,7 +1,9 @@
 echo off
 title KASSA %versionSoft%
 call %1.cmd
-
+call sellID.bat
+set /a sellID=%sellID%+1
+echo set sellID=%sellID%>>sellID.bat
 set /a total=%price%*%countTObuy%
 if %count% == 0 (echo Товара нет в наличии! Пополните запасы.&&goto end)
 set /a count=%count%-%countTObuy%
@@ -20,6 +22,9 @@ echo.>>print.txt
 echo Дата приобритения:>>print.txt
 echo %date%>>print.txt
 echo %time%>>print.txt
+echo.>>print.txt
+echo Номер покупки:>>print.txt
+echo %sellID%
 echo.>>print.txt
 echo СПАСИБО ЗА ПОКУПКУ!>>print.txt
 echo Печать чека...
